@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Contact Us</title>
+    <link rel="shortcut icon" href="images/logo.png"/>
+    <!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+      <style>      
+      ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+  	.hover-itemf:hover {
+	color:#3B5998 ;
+}
+
+.hover-itemt:hover {
+	color:#00aced ;
+}
+
+.hover-itemi:hover {
+	color:  #cd486b;
+}
+</style>
+</head>
+ <body>
+        <header id="header">
+                <nav id="main-menu" class="navbar navbar-default navbar-fixed-top top-nav-collapse" role="banner">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/prelo1.png" alt="logo" width="30%"></a>
+                        </div>
+                        
+                        <div class="collapse navbar-collapse navbar-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">HOME </a></li>
+                                <li><a href="teknothon.html">TEKNOTHON 2K18 </a></li>
+                                <li><a href="linuxication.html">LINUXICATION</a></li>  
+                                <li class="active"><a href="contact.html">CONTACT</a></li>                        
+                            </ul>
+                        </div>
+                    </div><!--/.container-->
+                </nav><!--/nav-->
+            </header><!--/header-->
+
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">CONTACT US</h2>
+            </div><br><br>
+            
+            <div class="row">
+            <div class="col-sm-6">
+            
+            <div class="address">
+            <h4>Email</h4>
+            <p><a href="mailto:mcug@mitpune.co.in">mcug@mitpune.co.in</a></p>
+            
+        </div>
+            <br>
+            
+            <h4>Address</h4><br>
+            <div class="mapouter"><div class="gmap_canvas"><iframe width="400" height="282" id="gmap_canvas" src="https://maps.google.com/maps?q=mit%20pune&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{text-align:right;max-height:50%;max-width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:282px;max-width:400px;border-radius:4px;}</style></div>
+        
+        </div>
+            
+            
+            <div class="col-sm-6">
+            <br>
+            <div id="result"></div><br>
+            <form name="contact-form" id="main-contact-form">
+                                <div class="form-group">
+                                    <input type="text" required placeholder="Name*" class="form-control" name="name" id="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" required placeholder="Email*" class="form-control" name="email" id="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" required placeholder="Subject*" class="form-control" name="subject" id="subject">
+                                </div>
+                                <div class="form-group">
+                                    <textarea required placeholder="Message*" rows="8" class="form-control" name="message" id="message"></textarea>
+                                </div><br>
+                                <button class="btn btn-primary" onclick="form_submit()">SUBMIT</button>
+            </form>
+            </div>
+            
+            </div>
+            <br><br>
+            
+            
+        </div><br><br>
+        <footer id="footer">
+       <footer id="footer">
+        <div class="container text-left">
+          All rights reserved © 2018 | MCUG                     
+          <object align="right">
+         <a  target="_blank" href="https://www.facebook.com/mcugpune"><i class="hover-itemf fa fa-facebook"></i></a>&nbsp; &nbsp; &nbsp; &nbsp;
+            <a target="_blank" href="https://twitter.com/mitcug"><i class="fa fa-twitter"></i></a> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+            <a target="_blank" href="https://instagram.com/mitcug"><i class="hover-itemi fa fa-instagram"></i></a>
+            </object>
+        </div>
+    </footer><!--/#footer-->
+ </body>
+ <script src="js/jquery.js"></script>
+ <script>
+     function form_submit(){
+        var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        var subject=document.getElementById("subject").value;
+        var message=document.getElementById("message").value;
+
+        $.ajax({
+            url:mail.php,
+            type:"post",
+            data:{name:name,email:email,subject:subject,message:message},
+            cache:false,
+            success:function(html){
+            $('#result').html("<div class='alert alert-success'>");
+                    $('#result > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                        .append("</button>");
+                    $('#result > .alert-success')
+                        .append("<strong>Your message has been sent. </strong>");
+                    $('#result > .alert-success')
+                        .append('</div>');
+
+                    //clear all fields
+                    $('#main-contact-form').trigger("reset");
+            },
+             error: function() {
+                    // Fail message
+                    $('#result').html("<div class='alert alert-danger'>");
+                    $('#result > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                        .append("</button>");
+                    $('#result > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#result > .alert-danger').append('</div>');
+                    //clear all fields
+                    $('#main-contact-form').trigger("reset");
+            },
+        })
+     }   
+ </script>
+ </html>
